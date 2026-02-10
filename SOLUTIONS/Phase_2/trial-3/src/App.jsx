@@ -1,4 +1,6 @@
 // Import RegistrationForm and PreferencesPanel components
+import RegistrationForm from "./components/RegistrationForm";
+import PreferencesPanel from "./components/PreferencesPanel";
 
 // RegistrationForm: Text inputs with real-time validation, password matching, checkbox for terms
 // PreferencesPanel: Radio buttons (theme), select dropdown (font size), checkbox (notifications), textarea (bio)
@@ -15,8 +17,9 @@ function App() {
 
           <div className="grid md:grid-cols-2 gap-6">
             {/* Render RegistrationForm component */}
-
+            <RegistrationForm />
             {/* Render PreferencesPanel component */}
+            <PreferencesPanel />
           </div>
         </div>
       </div>

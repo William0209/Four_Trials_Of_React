@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 // import useState
 
 const PreferencesPanel = () => {
   // Declare state variable 'theme' with initial value "light"
-
+  const [theme, setTheme] = useState("light");
   // Declare state variable 'fontSize' with initial value "medium"
-
+  const [fontSize, setFontSize] = useState("medium");
   // Declare state variable 'notifications' with initial value true
-
+  const [notifications, setNotfications] = useState(true);
   // Declare state variable 'bio' with initial value empty string
-
+  const [bio, setBio] = useState("");
   return (
     <div className="p-6 bg-white rounded-lg shadow-md">
       <h2 className="text-2xl font-bold text-gray-800 mb-4">
@@ -30,9 +30,9 @@ const PreferencesPanel = () => {
                   type="radio"
                   name="theme"
                   // Bind checked to whether theme state equals themeOption
-                  checked={____ === ____}
+                  checked={theme === themeOption}
                   // Update theme to themeOption when selected
-                  onChange={() => ____(____)}
+                  onChange={() => setTheme(themeOption)}
                   className="w-4 h-4 text-blue-600"
                 />
                 <span className="ml-2 text-sm text-gray-700 capitalize">
@@ -50,9 +50,9 @@ const PreferencesPanel = () => {
           </label>
           <select
             // Bind value to fontSize state
-            value={____}
+            value={fontSize}
             // Update fontSize on change
-            onChange={(e) => ____(____)}
+            onChange={(e) => setFontSize(e.target.value)}
             className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="small">Small</option>
@@ -70,9 +70,9 @@ const PreferencesPanel = () => {
           <input
             type="checkbox"
             // Bind checked to notifications state
-            checked={____}
+            checked={notifications}
             // Toggle notifications boolean
-            onChange={(e) => ____(____)}
+            onChange={(e) => setNotfications(e.target.checked)}
             className="w-4 h-4 text-blue-600 rounded"
           />
         </div>
@@ -84,9 +84,9 @@ const PreferencesPanel = () => {
           </label>
           <textarea
             // Bind value to bio state
-            value={____}
+            value={bio}
             // Update bio on change
-            onChange={(e) => ____(____)}
+            onChange={(e) => setBio(e.target.value)}
             maxLength={200}
             rows={4}
             className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -102,22 +102,23 @@ const PreferencesPanel = () => {
           <ul className="text-sm text-gray-600 space-y-1">
             {/* Display current theme value */}
             <li>
-              Theme: <span className="font-medium">{____}</span>
+              Theme: <span className="font-medium">{theme}</span>
             </li>
             {/* Display current fontSize value */}
             <li>
-              Font Size: <span className="font-medium">{____}</span>
+              Font Size: <span className="font-medium">{fontSize}</span>
             </li>
             {/* Display "Enabled" if notifications is true, otherwise "Disabled" */}
             <li>
               Notifications:{" "}
               <span className="font-medium">
-                {____ ? "Enabled" : "Disabled"}
+                {notifications ? "Enabled" : "Disabled"}
               </span>
             </li>
             {/* Display bio length */}
             <li>
-              Bio Length: <span className="font-medium">{____} characters</span>
+              Bio Length:{" "}
+              <span className="font-medium">{bio.length} characters</span>
             </li>
           </ul>
         </div>

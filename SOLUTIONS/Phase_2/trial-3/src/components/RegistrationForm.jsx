@@ -46,11 +46,11 @@ const RegistrationForm = () => {
     if (isFormValid) {
       alert(`Registration successful for ${username}!`);
       // Reset form - set all state variables back to initial values
-      ____(____);
-      ____(____);
-      ____(____);
-      ____(____);
-      ____(____);
+      setUsername("");
+      setEmail("");
+      setPassword("");
+      setConfirmPassword("");
+      setAgreeToTerms(false);
     }
   };
 
@@ -69,14 +69,16 @@ const RegistrationForm = () => {
           <input
             type="text"
             // Bind value to username state
-            value={____}
+            value={username}
             // Update username on change
-            onChange={(e) => ____(____)}
+            onChange={(e) => setUsername(e.target.value)}
             className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Enter username"
           />
           {/* Display usernameError if it exists */}
-          {____ && <p className="text-sm text-red-600 mt-1">{____}</p>}
+          {usernameError && (
+            <p className="text-sm text-red-600 mt-1">{usernameError}</p>
+          )}
         </div>
 
         {/* Email Input section */}
@@ -87,14 +89,16 @@ const RegistrationForm = () => {
           <input
             type="email"
             // Bind value to email state
-            value={____}
+            value={email}
             // Update email on change
-            onChange={(e) => ____(____)}
+            onChange={(e) => setEmail(e.target.value)}
             className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Enter email"
           />
           {/* Display emailError if it exists */}
-          {emailError && <p className="text-sm text-red-600 mt-1">{____}</p>}
+          {emailError && (
+            <p className="text-sm text-red-600 mt-1">{emailError}</p>
+          )}
         </div>
 
         {/* Password Input section */}
@@ -105,9 +109,9 @@ const RegistrationForm = () => {
           <input
             type="password"
             // Bind value to password state
-            value={____}
+            value={password}
             // Update password on change
-            onChange={(e) => ____(____)}
+            onChange={(e) => setPassword(e.target.value)}
             className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Enter password"
           />
@@ -121,18 +125,18 @@ const RegistrationForm = () => {
           <input
             type="password"
             // Bind value to confirmPassword state
-            value={____}
+            value={confirmPassword}
             // Update confirmPassword on change
-            onChange={(e) => ____(____)}
+            onChange={(e) => setConfirmPassword(e.target.value)}
             className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Confirm password"
           />
           {/* If passwordMatch is true, show green success message */}
-          {____ && (
+          {passwordMatch && (
             <p className="text-sm text-green-600 mt-1">Passwords match!</p>
           )}
           {/* If passwordMismatch is true, show red error message */}
-          {____ && (
+          {passwordMismatch && (
             <p className="text-sm text-red-600 mt-1">Passwords do not match</p>
           )}
         </div>
@@ -142,10 +146,10 @@ const RegistrationForm = () => {
           <input
             type="checkbox"
             // Bind checked attribute to agreeToTerms state
-            checked={____}
+            checked={agreeToTerms}
             // Update the agreeToTerms boolean on change
             // Use e.target.checked (not e.target.value for checkboxes)
-            onChange={(e) => ____(____)}
+            onChange={(e) => setAgreeToTerms(e.target.checked)}
             className="w-4 h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
           />
           <label className="ml-2 text-sm text-gray-700">
@@ -157,10 +161,10 @@ const RegistrationForm = () => {
         <button
           type="submit"
           // Disable button if form is not valid, utilise isFormValid and !
-          disabled={____}
+          disabled={!isFormValid}
           className={`w-full py-2 px-4 rounded font-medium ${
             // If form is valid, blue background, otherwise gray and cursor not-allowed
-            ____
+            isFormValid
               ? "bg-blue-600 text-white hover:bg-blue-700"
               : "bg-gray-300 text-gray-500 cursor-not-allowed"
           }`}
