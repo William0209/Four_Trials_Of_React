@@ -12,6 +12,8 @@ const PageTracker = () => {
   // Create: a useEffect that runs on mount (when component first renders), if you're unsure of the syntax for the useEffect hook, search it up without ai!
   // Inside: increment pageViews by 1 using the setter function
   // Specify the correct dependency for the useEffect so that it runs on mount
+  // note: ignore the lint error for setPageViews, we'll cover it in the documentation, so make sure to check it out!
+
 
   // Create: a useEffect that runs after every render.
   // Inside: update the title tag to show the current page, using the document.title, if you're confused on how you update document.title or about what it is, search it up without ai!
@@ -23,6 +25,7 @@ const PageTracker = () => {
   // Create: a useEffect that runs when currentPage changes
   // Inside: use the setter function to update the lastUpdated state variable to new Date().toLocaleTimeString()
   // Specify the correct dependency so it runs when currentPage changes
+  // note: ignore the lint error for setLastUpdated, check out the docs later!
 
   return (
     <div className="p-6 bg-white rounded-lg shadow-md">
@@ -30,18 +33,15 @@ const PageTracker = () => {
 
       <div className="space-y-3 mb-6">
         <p className="text-gray-600">
-          Page Views:{___}
-          <span className="font-bold text-blue-600">{pageViews}</span>
+          Page Views: <span className="font-bold text-blue-600">{___}</span>
         </p>
         <p className="text-gray-600">
-          Current Page:{___}
-          <span className="font-bold text-blue-600">{currentPage}</span>
+          Current Page: <span className="font-bold text-blue-600">{___}</span>
         </p>
         {/* Display lastUpdated if it exists */}
         {lastUpdated ___ (
           <p className="text-gray-600">
-            Last Updated:{___}
-            <span className="font-bold text-blue-600">{lastUpdated}</span>
+            Last Updated: <span className="font-bold text-blue-600">{___}</span>
           </p>
         )}
       </div>

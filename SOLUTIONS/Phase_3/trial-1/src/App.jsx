@@ -1,4 +1,10 @@
 // Import PageTracker and RenderCounter
+import PageTracker from "./components/PageTracker";
+import RenderCounter from "./components/RenderCounter";
+
+// WARNING: the trial casues an infinite loop, so test it out but stop the server it after you have visualized the issue:
+// You've now experienced what "cascading renders" means. An infinite chain of: render → effect → state update → render → effect → state update...
+// We'll cover this in the docs, so in order to understand the issue and how to avoid it, check out the docs, phase3/trial-1
 
 // What you learn:
 
@@ -8,6 +14,7 @@
 // Basic DOM side effects
 // Running effects on mount only
 // Running effects after every render
+// "cascading renders"
 
 function App() {
   return (
@@ -19,8 +26,10 @@ function App() {
           </h1>
           <div className="grid md:grid-cols-2 gap-6">
             {/* Render PageTracker */}
+            <PageTracker />
 
             {/* Render RenderCounter */}
+            <RenderCounter />
           </div>
         </div>
       </div>
