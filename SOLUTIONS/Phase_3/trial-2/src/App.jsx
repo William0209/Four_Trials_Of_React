@@ -1,4 +1,7 @@
 // Import StaleClosureDemo, MultiDependencyTracker, ObjectDependencyDemo
+import StaleClosureDemo from "./components/StaleClosureDemo";
+import MultiDependencyTracker from "./components/MultiDependencyTracker";
+import ObjectDependencyDemo from "./components/ObjectDependencyDemo";
 
 // This trial tests your understanding of:
 
@@ -18,10 +21,12 @@ function App() {
           </h1>
           <div className="grid md:grid-cols-3 gap-6">
             {/* Render StaleClosureDemo */}
+            <StaleClosureDemo />
 
             {/* Render MultiDependencyTracker */}
-
+            <MultiDependencyTracker />
             {/* Render ObjectDependencyDemo */}
+            <ObjectDependencyDemo />
           </div>
         </div>
       </div>

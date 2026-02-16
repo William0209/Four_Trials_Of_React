@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 // import useState and useEffect
 
 // A "stale closure" occurs when an effect captures an outdated value of a variable
 const StaleClosureDemo = () => {
   // Declare state variable 'count' with initial value 0
-
+  const [count, setCount] = useState(0);
   // Declare state variable 'message' with initial value ""
+  const [message, setMessage] = useState("");
 
   // Fill in the blank: useEffect with INCORRECT dependencies (empty array)
   // This effect is SUPPOSED to log the current count
@@ -15,15 +16,15 @@ const StaleClosureDemo = () => {
   useEffect(() => {
     // Fill in the blank: setMessage to show count value
     // Template: `Stale effect sees count as: ${____}`
-    ____(`Stale effect sees count as: ${____}`);
+    setMessage(`Stale effect sees count as: ${count}`);
   }, []);
 
   // Fill in the blank: useEffect with CORRECT dependencies
   // This effect correctly updates message when count changes
   // Specify count as the dependency so it always sees the latest value
   useEffect(() => {
-    ____(`Fresh effect sees count as: ${____}`);
-  }, [____]);
+    setMessage(`Fresh effect sees count as: ${count}`);
+  }, [count]);
 
   return (
     <div className="p-6 bg-white rounded-lg shadow-md">
@@ -33,18 +34,17 @@ const StaleClosureDemo = () => {
 
       <div className="space-y-3 mb-4">
         <p className="text-gray-600">
-          Actual count:{" "}
-          <span className="font-bold text-blue-600">{/* Display count */}</span>
+          Actual count: <span className="font-bold text-blue-600">{count}</span>
         </p>
         {/* Display message */}
         <p className="text-gray-600">
-          Message: <span className="font-bold text-green-600">{____}</span>
+          Message: <span className="font-bold text-green-600">{message}</span>
         </p>
       </div>
 
       <button
         // increment count using functional updater form
-        onClick={() => ___}
+        onClick={() => setCount((prev) => prev + 1)}
         className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
       >
         Increment Count

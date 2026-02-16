@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 // import useState and useEffect
 
 // This component demonstrates why objects/arrays as dependencies cause problems
 const ObjectDependencyDemo = () => {
   // Declare state variable 'firstName' with initial value ""
-
+  const [firstName, setFirstName] = useState("");
   // Declare state variable 'lastName' with initial value ""
-
+  const [lastName, setLastName] = useState("");
   // Declare state variable 'effectRunCount' with initial value 0
+  const [effectRunCount, setEffectRunCount] = useState(0);
 
   // Fill in the blank: useEffect with object as dependency (PROBLEMATIC)
   // This creates a new object on every render
@@ -20,10 +21,10 @@ const ObjectDependencyDemo = () => {
   useEffect(() => {
     if (firstName || lastName) {
       // increment effectRunCount using functional updater
-      ____((prev) => prev + 1);
+      setEffectRunCount((prev) => prev + 1);
     }
     // Fill in the blank: pass userObject as dependency (this is the problematic part)
-  }, [____]);
+  }, [userObject]);
 
   // Fill in the blank: useEffect with CORRECT primitive dependencies
   // Use firstName and lastName directly instead of the object
@@ -32,10 +33,10 @@ const ObjectDependencyDemo = () => {
 
   useEffect(() => {
     if (firstName || lastName) {
-      ____((prev) => prev + 1);
+      setCorrectRunCount((prev) => prev + 1);
     }
     // Fill in the blank: specify firstName and lastName as separate dependencies
-  }, [____, ____]);
+  }, [firstName, lastName]);
 
   return (
     <div className="p-6 bg-white rounded-lg shadow-md">
@@ -46,15 +47,15 @@ const ObjectDependencyDemo = () => {
       <div className="space-y-3 mb-4">
         <input
           type="text"
-          value={____}
-          onChange={(e) => ____(____)}
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
           placeholder="First name..."
           className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
         <input
           type="text"
-          value={____}
-          onChange={(e) => ____(____)}
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
           placeholder="Last name..."
           className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
@@ -63,11 +64,11 @@ const ObjectDependencyDemo = () => {
       <div className="space-y-2">
         <p className="text-sm text-gray-600">
           Object dependency effect runs: {/* display effectRunCount */}
-          <span className="font-bold text-red-600">{____}</span>
+          <span className="font-bold text-red-600">{effectRunCount}</span>
         </p>
         <p className="text-sm text-gray-600">
           Primitive dependency effect runs: {/* display correctRunCount */}
-          <span className="font-bold text-green-600">{____}</span>
+          <span className="font-bold text-green-600">{correctRunCount}</span>
         </p>
         <p className="text-xs text-gray-500 mt-2">
           Notice: Object dependency runs more often than primitive dependencies

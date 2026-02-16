@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 // import useState and useEffect
 
 const MultiDependencyTracker = () => {
   // Declare state variable 'username' with initial value ""
-
+  const [username, setUsername] = useState("");
   // Declare state variable 'role' with initial value "viewer"
-
+  const [role, setRole] = useState("viewer");
   // Declare state variable 'isActive' with initial value true
-
+  const [isActive, setIsActive] = useState(true);
   // Declare state variable 'log' with initial value of []
+  const [log, setLog] = useState([]);
 
   // Fill in the blank: useEffect with MULTIPLE dependencies
   // Should run when username OR role OR isActive changes
@@ -17,12 +18,12 @@ const MultiDependencyTracker = () => {
   // Fill in the blank for the functional updater form for setLog
   useEffect(() => {
     if (username) {
-      ____((prev) => [
+      setLog((prev) => [
         ...prev,
-        `Profile updated - User: ${____}, Role: ${____}, Active: ${____}`,
+        `Profile updated - User: ${username}, Role: ${role}, Active: ${isActive}`,
       ]);
     }
-  }, [____, ____, ____]);
+  }, [username, role, isActive]);
 
   return (
     <div className="p-6 bg-white rounded-lg shadow-md">
@@ -35,9 +36,9 @@ const MultiDependencyTracker = () => {
         <input
           type="text"
           // bind value to the username state
-          value={____}
+          value={username}
           // update username on change
-          onChange={(e) => ____(____)}
+          onChange={(e) => setUsername(e.target.value)}
           placeholder="Enter username..."
           className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
@@ -45,9 +46,9 @@ const MultiDependencyTracker = () => {
         {/* Role selector */}
         <select
           // bind value to the role state
-          value={____}
+          value={role}
           // update role on change
-          onChange={(e) => ____(____)}
+          onChange={(e) => setRole(e.target.value)}
           className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
         >
           <option value="viewer">Viewer</option>
@@ -60,9 +61,9 @@ const MultiDependencyTracker = () => {
           <input
             type="checkbox"
             // bind checked to isActive state
-            checked={____}
+            checked={isActive}
             // toggle isActive boolean using e.target.checked
-            onChange={(e) => ____(____)}
+            onChange={(e) => setIsActive(e.target.checked)}
             className="w-4 h-4 text-blue-600"
           />
           <label className="text-sm text-gray-700">Active User</label>
@@ -78,7 +79,7 @@ const MultiDependencyTracker = () => {
             </h3>
             {/* clear log on click */}
             <button
-              onClick={() => ____(__)}
+              onClick={() => setLog([])}
               className="text-xs text-red-600 hover:text-red-800"
             >
               Clear
