@@ -8,13 +8,14 @@ const AutoSaveTimer = () => {
   // Declare state variable 'lastSaved' with initial value null
   // Declare state variable 'saveStatus' with initial value "All changes saved"
 
-  // Create: a useEffect that sets up a debounced auto-save timer
+  // Create: a useEffect that sets up a "debounced" auto-save timer
   // Inside:
   // First: Set saveStatus to "Unsaved changes..."
-  // Second declare a variabel called timer that "saves" after 2 seconds (use setTimout), note when specifying time use     milliseconds, 1 sec = 1000, if you're unsure of the syntax when working with setTimout, look it up!
-  // Third: in the setTimeout update lastSaved to new Date().toLocaleTimeString() and update saveStatus to "Saved!"
-  // Fourth: return a cleanup function that clears the timout we created (timer) using clearTimout, syntax return ()=> clearTimeout()
+  // Second declare a variabel called timer that executes step 3 after 2 seconds (use setTimout), note when specifying time, 1 sec = 1000, if you're unsure of the syntax when working with setTimout, look it up!
+  // Third: in the setTimeout, update saveStatus to "Saved!", and lastSaved to new Date().toLocaleTimeString()
+  // Fourth: return a cleanup function that clears the timout we created (timer) using clearTimout, syntax return () => clearTimeout(__)
   // Specify the dependency array with the variable content
+  // note, you can leave the error for setSaveStatus or use  // eslint-disable-next-line react-hooks/set-state-in-effect
 
   // Why the cleanup matters:
   // Without cleanup, every keystroke creates a NEW timer

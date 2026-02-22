@@ -7,10 +7,10 @@ const WindowResizeTracker = () => {
 
   // Declare state variable 'resizeCount' with initial value of 0
 
-  // Create: a useEffect that tracks when the user resizes their browser window and update our component with the new dimensions.
-  // Inside: In the defined arrow function "handleResize", update the state variable windowSize with the current window.innerWidth and window.innerHeight
+  // Fill in the blank: for the useEffect below that tracks when the user resizes their browser window and update our component with the new dimensions.
+  // Inside: In the defined arrow function "handleResize", update the state variable windowSize with an object containing the current window.innerWidth and window.innerHeight
   // Aside from updating the setWindowSize state variable in handleResize, we also want to increment the setResizeCount variable with 1 using the functional updater form
-  // To tie it together, we add an eventlistener to window on "resize" that takes handleResize as its callback. syntax: window.listener("resize", callback)
+  // Crate an eventlistener asigned to window, with specified event as "resize" that also takes handleResize as its callback. syntax: window.listener("resize", callback)
   // At the end: we also want to clean up the eventlistener when the component unmounts, using removeEventListener
   // Dependency array: on mount
 
@@ -25,7 +25,7 @@ const WindowResizeTracker = () => {
       // increment resizeCount using functional updater
     };
 
-    // Add event listener
+    // Create event listener
 
     // Return cleanup function
     return () => {

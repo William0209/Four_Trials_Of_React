@@ -11,23 +11,23 @@ const LiveSearch = () => {
 
   // Declare state variable 'isLoading' with initial value of false
 
-  // Create: useEffect that fetches pokemon matching the query
+  // Fill in the blank: for the useEffect below, that fetches pokemon matching the query
   // When query changes:
   // 1. If query is empty after trimming, reset results to [] and return early
   // 2. Set isLoading to true
   // 3. Create a (let variable) 'cancelled' set to false
   // 4. Define async function fetchResults:
-  //    - fetch from `https://pokeapi.co/api/v2/pokemon/${query.toLowerCase()}`
-  //    - If response.ok is false, throw error
+  //    - fetch from `https://pokeapi.co/api/v2/pokemon/${trimmedQuery.toLowerCase()}`
+  //    - If response.ok is false, throw error "Not found"
   //    - await response.json()
-  //    - Check if (cancelled) return early (don't update state if cleanup ran)
+  //    - Check if (cancelled) is true, then return early (don't update state if cleanup ran)
   //    - setResults to array with single pokemon object: [{ name: data.name, id: data.id }]
   //    - catch: if (!cancelled) setResults([])
   //    - finally: if (!cancelled) setIsLoading(false)
   // 5. Call fetchResults()
   // 6. Return cleanup function that sets cancelled = true
-  // Dependency: query
-  //
+  // 7. Specify dependency array: query
+
   // Why the cleanup matters:
   // User types "pik" → request starts
   // User types "pikachu" → old request still pending, new request starts
@@ -37,23 +37,25 @@ const LiveSearch = () => {
   useEffect(() => {
     const trimmedQuery = query.trim();
 
-    // Fill in the blank: If query is empty, reset and return early
-    if (!____) {
-      ____(____);
-      return;
+    // Step 1
+    if (!___) {
+      ___;
+      ___;
     }
 
+    // Step 2
     ____(true);
-    let cancelled = ____;
+    // Step 3
+    let __ = __;
 
     const fetchResults = async () => {
       try {
         // fetch and store in response variable
-        // response ok check, if not throw new error "Not found"
+        // if reponse.ok is false, throw new error "Not found"
         // turn response to json and store in data variable
         // cancelled flag check, return ealy if cancelled is true
         // update results with [{ name: data.name, id: data.id }]
-      } catch (err) {
+      } catch {
         // if cancelled is false (req still relevant) and the promise still rejects, update results to an empty array
       } finally {
         // If cancelled is false (req still relevant), update isLoading to false

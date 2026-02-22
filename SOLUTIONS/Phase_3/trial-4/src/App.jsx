@@ -1,4 +1,7 @@
 // Import AutoSaveTimer, LiveSearch, WindowResizeTracker
+import AutoSaveTimer from "./components/AutoSaveTimer";
+import LiveSearch from "./components/LiveSearch";
+import WindowResizeTracker from "./components/WindowResizeTracker";
 
 // AutoSaveTimer: Cleanup timers to prevent multiple auto-saves
 // LiveSearch: Cleanup fetch requests to prevent race conditions
@@ -13,10 +16,11 @@ function App() {
           </h1>
           <div className="grid md:grid-cols-3 gap-6">
             {/* Render AutoSaveTimer */}
-
+            <AutoSaveTimer />
             {/* Render LiveSearch */}
-
+            <LiveSearch />
             {/* Render WindowResizeTracker */}
+            <WindowResizeTracker />
           </div>
         </div>
       </div>

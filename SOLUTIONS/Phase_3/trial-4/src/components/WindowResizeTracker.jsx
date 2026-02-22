@@ -1,16 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 // import useState and useEffect
 
 // Demonstrates cleanup with event listeners
 const WindowResizeTracker = () => {
   // Declare state variable 'windowSize' with initial value of an object containing: width: window.innerWidth, height: window.innerHeight,
-
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
   // Declare state variable 'resizeCount' with initial value of 0
+  const [resizeCount, setResizeCount] = useState(0);
 
-  // Create: a useEffect that tracks when the user resizes their browser window and update our component with the new dimensions.
-  // Inside: In the defined arrow function "handleResize", update the state variable windowSize with the current window.innerWidth and window.innerHeight
+  // Fill in the blank: for the useEffect below that tracks when the user resizes their browser window and update our component with the new dimensions.
+  // Inside: In the defined arrow function "handleResize", update the state variable windowSize with an object containing the current window.innerWidth and window.innerHeight
   // Aside from updating the setWindowSize state variable in handleResize, we also want to increment the setResizeCount variable with 1 using the functional updater form
-  // To tie it together, we add an eventlistener to window on "resize" that takes handleResize as its callback. syntax: window.listener("resize", callback)
+  // Crate an eventlistener asigned to window, with specified event as "resize" that also takes handleResize as its callback. syntax: window.listener("resize", callback)
   // At the end: we also want to clean up the eventlistener when the component unmounts, using removeEventListener
   // Dependency array: on mount
 
@@ -22,16 +26,22 @@ const WindowResizeTracker = () => {
   useEffect(() => {
     const handleResize = () => {
       // update windowSize accordingly
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
       // increment resizeCount using functional updater
+      setResizeCount((prev) => prev + 1);
     };
 
-    // Add event listener
+    // Create event listener
+    window.addEventListener("resize", handleResize);
 
     // Return cleanup function
     return () => {
-      ____.____("resize", ____);
+      window.removeEventListener("resize", handleResize);
     };
-  }, [____]);
+  }, []);
 
   return (
     <div className="p-6 bg-white rounded-lg shadow-md">
@@ -42,17 +52,17 @@ const WindowResizeTracker = () => {
       <div className="space-y-2">
         {/* Display window width */}
         <p className="text-sm text-gray-600">
-          Width: <span className="font-medium">{____}px</span>
+          Width: <span className="font-medium">{windowSize.width}px</span>
         </p>
 
         {/* Display window height */}
         <p className="text-sm text-gray-600">
-          Height: <span className="font-medium">{____}px</span>
+          Height: <span className="font-medium">{windowSize.height}px</span>
         </p>
 
         {/* Display resize count */}
         <p className="text-sm text-gray-600">
-          Resize events: <span className="font-medium">{____}</span>
+          Resize events: <span className="font-medium">{resizeCount}</span>
         </p>
 
         <p className="text-xs text-gray-500 mt-3">
