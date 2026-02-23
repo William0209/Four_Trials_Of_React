@@ -25,7 +25,7 @@ const PreviousValue = () => {
           Current: <span className="font-bold text-blue-600">{____}</span>
         </p>
 
-        {/* Display previous count from ref, or "none" if undefined */}
+        {/* Display previous count from ref, or "none" if undefined, disregard the eslint error or add eslint-disable-next-line react-hooks/refs */}
         <p className="text-sm text-gray-600">
           Previous:{" "}
           <span className="font-bold text-gray-600">{____.____ ?? "none"}</span>

@@ -12,7 +12,7 @@ const RenderCounter = () => {
 
   // Increment renderCount.current on every render
   // This runs on every render (not in useEffect)
-  // Note: Changing .current does NOT cause a re-render
+  // Note: Changing .current does NOT cause a re-render, disregard the eslint error or add eslint-disable-next-line react-hooks/refs
   ____.____++;
 
   const handleIncrement = () => {

@@ -1,4 +1,7 @@
 // Import FocusInput, RenderCounter, PreviousValue
+import FocusInput from "./components/FocusInput";
+import RenderCounter from "./components/RenderCounter";
+import PreviousValue from "./components/PreviousValue";
 
 // FocusInput: Using refs for DOM manipulation (focus management)
 // RenderCounter: Using refs to track values without causing re-renders
@@ -13,11 +16,11 @@ function App() {
           </h1>
           <div className="grid md:grid-cols-3 gap-6">
             {/* Render FocusInput */}
-            ____
+            <FocusInput />
             {/* Render RenderCounter */}
-            ____
+            <RenderCounter />
             {/* Render PreviousValue */}
-            ____
+            <PreviousValue />
           </div>
         </div>
       </div>
