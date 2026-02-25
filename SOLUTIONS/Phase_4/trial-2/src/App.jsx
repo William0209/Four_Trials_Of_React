@@ -1,4 +1,6 @@
 // Import MemoExample and CallbackExample
+import MemoExample from "./components/MemoExample";
+import CallbackExample from "./components/CallbackExample";
 
 // MemoExample: Shows React.memo and useMemo to prevent unnecessary recalculations
 // CallbackExample: Shows useCallback to prevent unnecessary function recreation
@@ -13,9 +15,9 @@ function App() {
 
           <div className="grid md:grid-cols-2 gap-6">
             {/* Render MemoExample */}
-            ____
+            <MemoExample />
             {/* Render CallbackExample */}
-            ____
+            <CallbackExample />
           </div>
         </div>
       </div>
