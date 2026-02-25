@@ -30,7 +30,7 @@ const CallbackExample = () => {
     setCount((prev) => prev + 1);
   }, [____]);
 
-  // Another callback that depends on no external values
+  // Another callback that depends on no external values, if you're wondering how it can be unchained from external values even though it's updating count, consider the use of the functional updater form, the answer lies there.
   const handleOtherIncrement = ____(() => {
     setOtherCount((prev) => prev + 1);
   }, [____]);

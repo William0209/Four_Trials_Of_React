@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState, memo, useCallback } from "react";
 // import useState, memo and useCallback
 
 // Child component that receives a callback
 // Wrap it in memo so it only re-renders when props change
 // Child component that receives a callback
 // Wrapped in memo so it only re-renders when props change
-const Button = ___(({ onClick, children }) => {
+const Button = memo(({ onClick, children }) => {
   console.log(`Button "${children}" rendered`);
 
   return (
@@ -26,14 +26,14 @@ const CallbackExample = () => {
   // causing Button to re-render even though the function does the same thing
   // useCallback memoizes the function reference
   // Syntax: const function = useCallback(() => { }, [dependencies]);
-  const handleIncrement = ____(() => {
+  const handleIncrement = useCallback(() => {
     setCount((prev) => prev + 1);
-  }, [____]);
+  }, []);
 
-  // Another callback that depends on no external values
-  const handleOtherIncrement = ____(() => {
+  // Another callback that depends on no external values, if you're wondering how it can be unchained from external values even though it's updating count, consider the use of the functional updater form, the answer lies there.
+  const handleOtherIncrement = useCallback(() => {
     setOtherCount((prev) => prev + 1);
-  }, [____]);
+  }, []);
 
   return (
     <div className="p-6 bg-white rounded-lg shadow-md">
