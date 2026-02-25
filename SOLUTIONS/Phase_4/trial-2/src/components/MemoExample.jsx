@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useMemo } from "react";
 // import useState and useMemo
 // import the ExpensiveList component
+import ExpensiveList from "./ExpensiveList";
 
 const MemoExample = () => {
   const [count, setCount] = useState(0);
@@ -9,7 +10,7 @@ const MemoExample = () => {
   // Expensive calculation that we only want to run when filter changes
   // useMemo memoizes the result
   // Syntax: const value = useMemo(() => calculation, [dependencies]);
-  const filteredItems = ____(() => {
+  const filteredItems = useMemo(() => {
     console.log("Calculating filtered items...");
 
     const items = [
@@ -21,9 +22,9 @@ const MemoExample = () => {
 
     // Filter items based on filter text (case insensitive)
     return items.filter((item) =>
-      item.name.toLowerCase().includes(____.toLowerCase()),
+      item.name.toLowerCase().includes(filter.toLowerCase()),
     );
-  }, [____]);
+  }, [filter]);
 
   return (
     <div className="p-6 bg-white rounded-lg shadow-md">

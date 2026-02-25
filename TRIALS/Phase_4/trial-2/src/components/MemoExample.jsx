@@ -55,7 +55,7 @@ const MemoExample = () => {
         </div>
 
         {/* Pass memoized items to ExpensiveList */}
-        <ExpensiveList items={filteredItems} />
+        <ExpensiveList items={____} />
       </div>
     </div>
   );
