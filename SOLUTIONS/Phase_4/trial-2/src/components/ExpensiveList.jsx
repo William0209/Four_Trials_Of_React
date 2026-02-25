@@ -1,10 +1,10 @@
-import React from "react";
+import React, { memo } from "react";
 // import memo
 
 // A child component that renders a list
 // We'll optimize this to prevent re-renders when items haven't changed
 // Receive items prop
-const ExpensiveList = () => {
+const ExpensiveList = ({ items }) => {
   // Simulate expensive rendering by logging
   console.log("ExpensiveList rendered");
 
@@ -24,4 +24,4 @@ const ExpensiveList = () => {
 
 // Wrap component with React.memo to prevent re-renders when props haven't changed
 // Syntax: export default memo(ComponentName);
-export default ____(____);
+export default memo(ExpensiveList);
