@@ -5,7 +5,8 @@ import React from "react";
 
 const CustomHooksDemo = () => {
   // Use custom useLocalStorage hook to persist name
-  // Syntax: const [value, setValue] = useLocalStorage(key, initialValue)
+  // Provide a localStorage key (string) and initial value (empty string)
+  // Syntax: const [value, setValue] = useLocalStorage("username", initialValue)
   const [name, setName] = ____(____, ____);
 
   // Use custom useToggle hook for dark mode

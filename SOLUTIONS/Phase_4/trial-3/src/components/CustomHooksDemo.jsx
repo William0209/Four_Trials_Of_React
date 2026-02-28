@@ -1,19 +1,23 @@
 import React from "react";
 // Import useLocalStorage
+import useLocalStorage from "../hooks/useLocalStorage";
 // Import useToggle
+import useToggle from "../hooks/useToggle";
 // Import useCounter
+import useCounter from "../hooks/useCounter";
 
 const CustomHooksDemo = () => {
   // Use custom useLocalStorage hook to persist name
-  // Syntax: const [value, setValue] = useLocalStorage(key, initialValue)
-  const [name, setName] = ____(____, ____);
+  // Provide a localStorage key (string) and initial value (empty string)
+  // Syntax: const [value, setValue] = useLocalStorage("username", initialValue)
+  const [name, setName] = useLocalStorage("username", "");
 
   // Use custom useToggle hook for dark mode
-  const [isDarkMode, toggleDarkMode] = ____();
+  const [isDarkMode, toggleDarkMode] = useToggle();
 
   // Use custom useCounter hook
   // Destructure count, increment, decrement, reset from returned object
-  const { ____, ____, ____, ____ } = ____();
+  const { count, increment, decrement, reset } = useCounter();
 
   return (
     <div
