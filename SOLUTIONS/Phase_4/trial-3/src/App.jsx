@@ -1,4 +1,5 @@
 // Import CustomHooksDemo
+import CustomHooksDemo from "./components/CustomHooksDemo";
 
 // Custom hooks extract reusable stateful logic
 // useLocalStorage: Syncs state with localStorage
@@ -13,7 +14,7 @@ function App() {
             Custom Hooks Trial
           </h1>
           {/* Render CustomHooksDemo */}
-          ____
+          <CustomHooksDemo />
         </div>
       </div>
     </>
