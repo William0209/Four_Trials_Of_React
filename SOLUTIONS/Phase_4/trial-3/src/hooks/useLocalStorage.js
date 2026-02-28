@@ -1,4 +1,5 @@
 // import useState
+import { useState } from "react";
 
 // Custom hook for syncing state with localStorage
 // Naming convention: Custom hooks MUST start with "use"
@@ -9,16 +10,16 @@ const useLocalStorage = (key, initialValue) => {
     try {
       // Step 1: Get item from localStorage using the key
       // Syntax: window.localStorage.getItem(key)
-      const item = window.____.____(____);
+      const item = window.localStorage.getItem(key);
 
       // Step 2: If item exists, parse it from JSON string to JavaScript value
       // Otherwise return initialValue
       // Syntax: item ? JSON.parse(item) : initialValue
-      return item ? JSON.____(____) : ____;
+      return item ? JSON.parse(item) : initialValue;
     } catch (error) {
       console.error(error);
       // Step 3: If anything goes wrong, return initialValue
-      return ____;
+      return initialValue;
     }
   });
 
@@ -29,22 +30,24 @@ const useLocalStorage = (key, initialValue) => {
       // If value is a function, call it with storedValue
       // Otherwise use value directly
       // Syntax: value instanceof Function ? value(storedValue) : value
-      const valueToStore = value instanceof Function ? ____(____) : ____;
+      const valueToStore =
+        value instanceof Function ? value(storedValue) : value;
 
       // Step 2: Update React state
       // Call setStoredValue with valueToStore
-      ____(____);
+      setStoredValue(valueToStore);
 
       // Step 3: Save to localStorage
       // Convert valueToStore to JSON string and save with key
       // Syntax: window.localStorage.setItem(key, JSON.stringify(valueToStore))
-      window.____.____(____, JSON.____(____));
+      window.localStorage.setItem(key, JSON.stringify(valueToStore));
     } catch (error) {
       console.error(error);
     }
   };
 
-  // Return array like useState: [currentValue, setterFunction]
+  // Return array like useState: [currentValue, setterFunction], note in terms of the setter, return the custom setter setValue
+  return [storedValue, setValue];
 };
 
 export default useLocalStorage;

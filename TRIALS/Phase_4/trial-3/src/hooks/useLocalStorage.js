@@ -44,7 +44,7 @@ const useLocalStorage = (key, initialValue) => {
     }
   };
 
-  // Return array like useState: [currentValue, setterFunction]
+  // Return array like useState: [currentValue, setterFunction], note in terms of the setter, return the custom setter setValue
 };
 
 export default useLocalStorage;
