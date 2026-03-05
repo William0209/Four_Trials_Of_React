@@ -2,14 +2,14 @@ import React from "react";
 // Import useTheme custom hook
 
 // Component that uses theme context
-const ThemedButton = ({ children, onClick }) => {
+const ThemedButton = ({ children }) => {
   // Use custom hook to get theme and toggleTheme
   // Destructure theme and toggleTheme from useTheme()
   const { ____, ____ } = ____();
 
   return (
     <button
-      onClick={onClick}
+      onClick={__}
       // Apply theme-based styling
       className={`px-4 py-2 rounded ${
         ____ === "dark"

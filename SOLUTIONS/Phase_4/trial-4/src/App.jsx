@@ -1,6 +1,9 @@
 // Import ThemeProvider
+import { ThemeProvider } from "./context/ThemeProvider";
 // Import UserProvider
-// Import UserProvider
+import { UserProvider } from "./context/UserProvider";
+// Import ContextDemo
+import ContextDemo from "./components/ContextDemo";
 
 // Wrap ContextDemo with both providers
 // All children of ContextDemo will have access to both contexts
@@ -8,14 +11,14 @@
 function App() {
   return (
     <>
-      // Wrap with ThemeProvider
-      <____>
+      {/* Wrap with ThemeProvider */}
+      <ThemeProvider>
         {/* Wrap with UserProvider */}
-        <____>
+        <UserProvider>
           {/* Render ContextDemo - has access to both contexts */}
-          <____ />
-        </____>
-      </____>
+          <ContextDemo />
+        </UserProvider>
+      </ThemeProvider>
     </>
   );
 }

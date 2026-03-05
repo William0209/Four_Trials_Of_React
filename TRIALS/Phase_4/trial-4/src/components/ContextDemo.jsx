@@ -4,8 +4,8 @@ import ThemedButton from "./ThemedButton";
 import UserProfile from "./UserProfile";
 
 const ContextDemo = () => {
-  // Get theme and toggleTheme from context
-  const { ____, ____ } = ____();
+  // Get theme from context
+  const { ____ } = ____();
 
   return (
     <div
@@ -29,7 +29,7 @@ const ContextDemo = () => {
           </p>
 
           {/* Button uses ThemedButton which consumes context */}
-          <ThemedButton onClick={____}>Toggle Theme</ThemedButton>
+          <ThemedButton>Toggle Theme</ThemedButton>
         </div>
 
         {/* UserProfile consumes user context */}
