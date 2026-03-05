@@ -1,5 +1,6 @@
 import React from "react";
 // Import useTheme custom hook
+import { useTheme } from "../hooks/useTheme";
 
 // Component that uses theme context
 const ThemedButton = ({ children, onClick }) => {

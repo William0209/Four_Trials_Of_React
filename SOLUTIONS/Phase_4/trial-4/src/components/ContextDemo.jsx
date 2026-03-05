@@ -1,5 +1,6 @@
 import React from "react";
 // Import useTheme
+import { useTheme } from "../hooks/useTheme";
 import ThemedButton from "./ThemedButton";
 import UserProfile from "./UserProfile";
 
