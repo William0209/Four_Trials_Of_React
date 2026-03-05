@@ -3,7 +3,7 @@
 
 // Provider component for user data
 // Destruct children from props and specify it in the param
-export function UserProvider({ children }) {
+export function UserProvider({ ___ }) {
   // Declare state variable user with a initial value of: {name: "", role: "viewer",}
 
   // Create login function that updates user 
